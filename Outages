@@ -1,0 +1,926 @@
+
+
+
+
+
+Report on Outages unrelated to Generation shortfall
+
+
+PNG Power Limited
+USAID-PEP Team
+March 2023
+
+
+
+Table of Contents
+Table of Contents	2
+1	Executive Summary	4
+1.1	Overview of the report objectives and key findings	4
+1.2	Summary of recommendations	5
+2	Acronyms and Abbreviations	6
+3	Introduction	8
+3.1	Background of the PNG electric grid	8
+3.2	Condition of Assets	9
+3.3	Outage Management system	9
+3.4	Analysis of the system	10
+1.2	Scope of the analysis	13
+1.3	Objectives of the report	14
+2	Methodology	14
+2.1	Data collection and sources	15
+2.2	Data cleaning and preprocessing	15
+2.3	Analytical techniques and tools used	15
+3	Analysis of Interruption and Outage Data	17
+3.1	Overview of PPL's outage data sets	17
+3.2	Review of System Outage reports	18
+3.3	Findings from the Outage data analysis	22
+4	Protective Relay coordination criteria	23
+4.1	Evaluation Guidelines	25
+4.2	HV Transmission Line Protection	26
+4.3	Transformer Protection Guidelines	34
+4.4	Bus Protection Guidelines	36
+4.5	Capacitor Bank Protection Guidelines	37
+4.6	Breaker Protection and Control Guidelines	37
+4.7	Distribution Feeder Protection	39
+4.8	Distribution Bus Main Breaker Protection	43
+4.9	Key Definitions for Relay Coordination	44
+5	Managing Overload Conditions	46
+5.1	Review of PPL's overload conditions	46
+5.2	Analysis of alignment with international standards	46
+5.3	Recommendations for managing overload conditions.	46
+6	Equipment Maintenance and Upgrades	48
+7	Conclusion	49
+8	Appendices	49
+8.1	PPL Protection settings	49
+8.2	PPL System Outage Reports	49
+
+
+
+
+
+
+
+
+
+
+
+
+
+Executive Summary 
+PNG Power Limited (PPL) is a vertically integrated power authority responsible for generating, transmitting, distributing, and retailing electricity throughout Papua New Guinea (PNG). It’s customer list includes industrial, commercial, government, and domestic sectors. The USAID-PEP Activity is a five-year project that entails accelerating the electrification development process to connect 70 percent of the PNG population to electricity by 2030 and involves development partners, such as DFAT, ADB, JICA, MFAT, USAID, USTDA, and WB. 
+Currently, PPL experiences significant operational challenges, including frequent power outage issues concerning failure associated with the generation, transmission, and distribution networks. As part of the broader grid stabilisation plan to ensure network reliability, PPL needs to improve the outage identification and reporting, and this report provides the analysis on outages unrelated to generation shortfall. 
+USAID_PEP prepared multiple Requests for Information (RFI) to gather data on PPL’s existing outage management and reporting processes. The review process included multiple consultations with PPL, discussions with key stakeholders, information gathering from PPL, desktop review of regulations, grid code, and PPL’s Standard Operational Procedures (SOP). 
+The work performed by USAID_PEP for this report required continuous consultations with PPL’s National System Operator (NSO) and Generation teams for information gathering and SOPs. As part of the assessment of current practices, USAID-PEP has determined that there are multiple gaps between PPL’s current practices and industry standards and practices for the tracking and reporting outages. This report contains a comparative overview and data-driven analysis of PPL’s current processes against the industry standards.
+Overview of the report objectives and key findings 
+This report aims to analyze and provide recommendations on how PPL can reduce outages unrelated to generation shortfall. The focus will be on identifying the root causes of these outages, evaluating potential solutions, and proposing a strategic plan for implementation. By reducing outages, PPL can increase customer satisfaction, improve operational efficiency, and maintain a reliable power supply.
+The key issues identified during this analysis are:
+The existing outage recording process is manual and prone to human errors. This leads to inaccuracies in outage causes and duplicate entries into the outage datasets.  
+The protection settings at many substations and transmission lines are not well coordinated, leading to cascading faults which are not isolated at the location of occurrence. This needs to be immediately addressed as a matter of urgency.
+The time synchronization across all Grid devices in the PPL grids is not functioning this often leads to discrepancies in event logs.
+The Static Synchronous Compensator (STATCOM) at the Boroko substation has been under maintenance and it needs to be rehabilitated to maintain healthy system voltage levels. 
+PPL currently has very limited capability to identify and trace-back root causes of outages. This limits the capability to develop technical solutions and prevent damaging cascading outages in the future.
+The ramp rates i.e. droop setting, voltage, and frequency/voltage trip setpoints for all generators should be reviewed and optimized to prevent cascading trips.
+Review and ensure a fully functioning automatic under-frequency load-shedding scheme is in place. This is the least cost solution to avoid system blackout. 
+It is essential to coordinate the protection settings of all generators, feeders, and transmission lines to prevent widespread outages due to minor localised individual component faults.
+Regular preventive line maintenance to control vegetation growth should be performed to minimize the risk of unexpected line trips. The installation of auto-reclosers in the distribution network can minimize the impact of distribution interruptions and outages. 
+Lastly, there needs to be a mechanism to conduct regular reviews of grid operations and maintenance procedures to identify potential vulnerabilities and implement preventative measures to reduce the risk of future outages. We would be keen to review the recent RCA (root cause analysis) reports from the Asset Management if they can be made available.
+Summary of recommendations
+Based on the analysis performed in this report and the follow-on consultations with several departments of PPL, USAID-PEP identified three key focus areas PPL should work on to reduce outages unrelated to generation short fall.
+Protective relay coordination: USAID_PEP recommends that PPL perform a coordination study for the HV Transmission Line and MV distribution system. The protective relay coordination criteria for performing the coordination study is presented in section 4 of this report. 
+Load Management: 
+Equipment Operation & Maintenance, and upgrades. 
+Specific recommendations on three areas of focus are presented and discussed in detail in sections 4, 5 and 6 of this report respectively. 
+below are some operational recommendations to reduce outages:
+Ensure proper ramp rate management: Ramp rate management is crucial to prevent overloading and subsequent cascading outages. It is important to set appropriate ramp rate limits for generators and control the rate of change of their output.
+Set appropriate overload trip limits for generators: Overloading of generators can lead to trips and subsequent cascading outages. It is important to set appropriate overload trip limits for generators to prevent overloading.
+Install a robust protection system: A robust protection system can detect and isolate faults quickly, preventing them from spreading to other parts of the system and causing cascading outages.
+Restore/install RTU at all generation sites for visibility: Real-time monitoring and visibility of the system are crucial in preventing and mitigating outages. SCADA systems should be restored or installed at all generation sites to improve visibility and monitoring of the system.
+Verify NP generator response: The response of Niu Power generators should be verified to ensure their proper functioning. Specific attention should be given to Unit 2, which appears to have slower ramp rates and lower overload trip limits than the other units.
+Restore Boroko Statcom to maintain healthy voltage levels: Boroko Statcom should be restored to assist in maintaining healthy voltage levels and prevent voltage collapse.
+Review protection settings and load-shedding schemes for NiuPower Units: The protection settings and load-shedding schemes should be reviewed for NiuPower Units to prevent overloading and cascading trips.
+Synchronize time across all grid devices: Synchronization of time across all grid devices is important to ensure accurate monitoring and control of the system.
+Conduct regular reviews of grid operations and maintenance procedures: Regular reviews of grid operations and maintenance procedures should be conducted to identify potential vulnerabilities and implement preventative measures to reduce the risk of future outages.
+
+
+
+
+
+
+
+
+
+
+
+Acronyms and Abbreviations
+
+Acronyms
+Meaning
+ADB
+Asian Development Bank
+CRAC
+Computer Room Air Conditioning
+CSC
+Customer Service Centre
+GIS
+Geographic Information System
+KPI
+Key Performance Indicators
+PEP
+PNG Electrification Partnership
+PPL
+PNG Power Ltd
+NSO
+National System Operator
+AM
+Asset Management
+SCADA
+Supervisory Control and Data Acquisition
+SAIDI
+System Average Interruption Duration Index
+SAIFI
+System Average Interruption Frequency Index
+USAID
+United States Agency for International Development
+POM
+Port Moresby
+OFR
+Operational Fault Report
+MED
+Major Event Day
+WPF
+Worst Performing Feeder
+LDC
+Load Dispatch Center
+IEEE
+Institute of Electrical and Electronics Engineers
+RFI
+Request for Information
+21P
+Phase distance
+21G
+Ground distance
+50P
+Phase instantaneous overcurrent
+50PDT
+Phase Definite-time Overcurrent
+50G
+Residual ground instantaneous overcurrent
+50GDT
+Residual ground definite-time overcurrent
+50N
+Neutral ground instantaneous overcurrent
+50NDT
+Neutral ground definite-time overcurrent
+50BF
+50 element used as fault detector in a breaker failure protection scheme
+51G
+Residual ground inverse time overcurrent
+51N
+Neutral inverse time overcurrent
+67P
+Phase directional time overcurrent
+87L
+Line current differential
+
+
+
+
+
+Introduction 
+Background of the PNG electric grid 
+PPL operates three separate main electric grids in PNG: the Port Moresby (POM) grid, the Ramu grid, and the Gazelle peninsular system in East New Britain Province. In addition, PPL operates 26 mini grids known as “C Centers”, with an aggregate capacity of ~25 MW. Figure 1 shows the locations of the main grids.
+In 2021, the installed net capacity on the POM grid was ~222 MW, with much lower net operable capacity of ~145-160 MW (depending on availability) to meet a peak load of ~125 MW. Hydropower from the Rouna hydropower plant delivers ~42 MW with the balance from PPL-owned diesel-fired plants and IPP-owned gas-fired thermal plants. A new gas-fired power project of 45 MW nameplate capacity, Dirio, was completed in November 2020, though dispatch is limited, pending completion of a new transmission line in 2023/25. A further 50 MW will be added when Edevu hydro comes online over the same period.
+The Ramu grid had lower peak demand in 2021 of ~110 MW, served by ~142 MW of installed capacity, with much lower available capacity. Most capacity on the Ramu system is delivered by Ramu 1, Pauanda, and Baiune hydropower plants, along with the Munum IPP plant. A rehabilitation of Ramu 1 is expected to add ~20 MW in 2022, and a new hydro project, Baime, is expected to add 11 MW in 2023.
+Figure 1: PPL's main grids
+Condition of Assets
+The majority of existing systems at PPL were installed two decades ago and are not compatible to communicate with one another. The PPL personnel record information manually on paper or in excel. Also, the data gathering process is so stretched out that the existing data becomes outdated and is usually no longer relevant. Access to information and analyzing the data is one of the most significant challenges at PPL since it is paper-based, inconsistent, and spread out.
+PPL data center is located at the National Office, Port Moresby. The existing infrastructure includes fanfold IBM Infoprint, used to print the bills, central Uninterruptible Power System (UPS), which in case of power failure can maintain Data Centre, running for two to three hours.
+The data that PPL has on the VM servers (Gentrack, Suprima, and Chris 21) is backed up and synchronized with offsite storage - Digitec Data Centre, which does not cover all servers and applications. All significant databases are backed up daily, except for the Oracle system.
+Currently, PPL lacks the adequate metering infrastructure to extract raw data to monitor energy balance fully and determine actual commercial losses in the system. Considering the Situation with how data is extracted and recorded, PPL faces significant obstacles in generating relevant overview reports, which would allow managers access to consolidated information for accurate decision-making.
+Outage Management system
+Under normal operation conditions, following a circuit breaker operation, the information is sent to the control center by the Supervisory Control and Data Acquisition System (SCADA) system. The event is automatically recorded at the control center. 
+However, most of the substations in PNG are not equipped with SCADA. PPL’s grid visibility for POM, Ramu and Gazelle grids is about 60%, 40% and 30% respectively. Therefore, all faults and interruptions are manually recorded by OFR. OFRs typically have insufficient information because they are often recorded individually for each substation and at the time of fault recovery. 
+This means it is difficult to differentiate between faults related to several substations as a single fault may be recorded simultaneously by different operators at different substations. This duplication is exacerbated by the fact that operators may attribute different causes to a specific fault. 
+Table 1 below provides the existing cause codes used by PPL for outage recording:
+Table 1: PPL's Cause codes for outage recording
+Cause Code
+Description
+A
+Human Agency: Vehicle, etc., striking poles or conductors. Switching (including switching overload), testing, vandalism, falling tree equipment, and failing to carry out the task.
+A1
+ PPL Personnel responsible
+A2
+Other than PPL Personnel responsible
+A3
+Acts of Vandalism
+B
+Forces of Nature
+B1
+Trees or part thereof
+B2
+Other than trees or part thereof
+B3
+Lightning
+B4
+Not found during storm (but attributed to storm).
+C
+Apparatus Failure
+C1
+PPL equipment
+C2
+Consumers and other authorities responsible
+C3
+Poles and cross arm fires
+D
+Overload
+D1
+PPL-responsible
+D2
+Consumers and other authorities responsible
+E
+Birds/Animals
+F
+Unknown: Nil found (other than B4)
+
+
+PPL’s cause codes do not provide further information on other key attributes of the faults. Ideally, the cause codes should be able to differentiate between, planned, unplanned, momentary, sustained, and controllable outages. 
+PPL may additionally incorporate the location (transmission/distribution/generation) into the cause codes.
+As part of the literature review process for this task, USAID-PEP reviewed the Single Line Drawings and grid code of PPL. USAID-PEP additionally reviewed the outage data sets provided by PPL and diagnostic reports for the analysis conducted on the system. USAID-PEP made the following observations:
+Analysis of the system
+The existing power supply is unreliable lacking redundancy in the network. As a result, a large portion of the energy goes underserved.
+PPL’s Ramu and POM grids are largely radial with the insufficient generation or transmission assets to reliably support the connected load. This results in frequent generation shortfalls and under-frequency faults.
+Protection relays in the Ramu system used to be inspected regularly. However, no routine inspections have been performed since the inspection equipment malfunctioned. Since many of the Transmission lines do not have (n-1) redundancy, PPL is unable to put those lines out of service for routine inspections. During consultations and briefings with PPL, the USAID PEP team gathered the following observations:
+The PPL’s protection team is understaffed and under-equipped to handle regular preventative maintenance and servicing of relays. 
+PPL’s protection team is made up of only two personnel who are responsible for the maintenance, and operation of relays on the three main grids. The protection team lacks self-sufficiency and expertise in carrying out planned and unplanned maintenance tasks on advanced numerical relays. 
+Many relays have never been recalibrated since their original installation. This includes the legacy electromechanical and solid-state relays. Therefore, the operational condition and set point accuracy for these relays cannot be ascertained. 
+There is no central, comprehensive database where the relay settings across the system can be maintained and updated. 
+
+System stability is an important factor in ensuring the reliable operation of an electricity grid. System instability can result from a variety of causes, such as changes in demand patterns, problems with the generation mix, and system disturbances. To ensure reliable and continuous power supply to customers, it is important to implement measures to improve system stability. Scope of the Report: This report outlines the steps that can be taken to improve system stability in a utility. The report will focus on the implementation of measures to improve system stability and will not cover the causes of system instability or other related topics. Steps for Implementing System Stability Improvements: Load Forecasting: Accurate load forecasting is the first step in ensuring system stability. The utility can implement advanced load forecasting techniques to improve the accuracy of its load forecasts, which will help to ensure that the generation mix is optimized to meet demand. Load Shedding: Load shedding is a measure that can be taken to balance demand and supply when the system is approaching instability. The utility can implement load shedding procedures to reduce demand in a controlled and systematic manner, which will help to ensure that the system remains stable. Frequency Control: Frequency control measures can be implemented to ensure that the system remains within its frequency band, which is critical for maintaining system stability. Frequency control measures can include the use of automatic generation control (AGC) and load frequency control (LFC). Generator Re-dispatch: In cases where the system is approaching instability, generator re-dispatch can be used to adjust the generation mix to maintain system stability. The utility can implement procedures to ensure that generator re-dispatch is carried out in a controlled and systematic manner. Load Balancing: Load balancing is another measure that can be taken to improve system stability. The utility can implement load balancing procedures to ensure that the load is distributed evenly across its network, which will help to reduce the likelihood of system instability. Communication and Coordination: Communication and coordination between all stakeholders is critical for ensuring system stability. The utility can implement measures to ensure that communication and coordination between all stakeholders is effective and efficient, which will help to improve system stability. Training and Awareness: The utility can implement training and awareness programs to ensure that all stakeholders understand the importance of system stability and the measures that can be taken to improve it. This will help to ensure that everyone is aware of their role in maintaining system stability and will encourage a culture of safety and reliability within the utility. Conclusion: Implementing measures to improve system stability is critical for ensuring the reliable operation of an electricity grid. By following the steps outlined in this report, the utility can take a proactive approach to ensuring system stability, which will help to reduce the likelihood of outages and improve the quality of power supply to customers.
+During the review of outage data sets, a recurring pattern of cascading system outages was observed on both POM and Ramu grids. These cascading outages typically occur when a single point of failure in a fully loaded system is not isolated effectively, resulting in a domino effect that affects other parts of the system. This pattern is particularly exaggerated in the distribution systems where many wider outages were avoidable. The likely reason for this is protection systems that are configured incorrectly or incompatible to work in tandem with secondary protection.
+Another side effect of these cascading faults is that it becomes difficult for the operator to determine the origin or cause of the fault. Therefore, the operators tend to record the location where fault or breaker operation was first observed. Figure 4 below shows the breakdown of outage hours by zone.
+
+Figure 2: Ramu interruptions by Zone
+Over the past five years Ramu and POM grids have experienced 17,367 and 2,908 cumulative hours of service interruptions annually. This is far more than the levels specified in the grid code. Table 2 provides the worst performing feeders in terms of hours of outage in 2021.
+Scope of the analysis 
+This report will focus on outages unrelated to generation shortfall within PPL's service area in Papua New Guinea.
+There are several causes of outages that are unrelated to generation shortfall. Based on the outage datasets reviewed, some of the common causes include:
+Distribution and transmission losses: These occur when electricity is transmitted and distributed over long distances, and can be caused by a variety of factors such as aging infrastructure, equipment failure, and theft. 
+Technical and non-technical losses: Technical losses are caused by the inherent properties of the transmission and distribution system, such as resistance in the wires. Non-technical losses are caused by things like meter tampering, billing errors, and theft of electricity. 
+Equipment failure: This can be caused by a variety of factors, such as equipment malfunction, weather events, and lack of maintenance. 
+System instability: This can be caused by a variety of factors, such as changes in demand patterns, problems with the generation mix, and system disturbances.
+Power theft: Cost to utility
+Based on research of several developing utilities, the following strategies are recommended to be implemented to reduce shortages unrelated to generation shortfall:
+Upgrading the transmission and distribution infrastructure: This can include replacing aging equipment, upgrading transformers, and improving the overall reliability of the system. 
+Implementing advanced metering infrastructure (AMI): This can help utilities to more accurately measure and track electricity usage, which can help to identify and prevent theft.
+Improving maintenance practices: Regular maintenance of equipment can help to reduce the likelihood of equipment failure and prolong the life of the equipment.
+Improve system stability: This can include implementing load shedding, frequency control and balancing to ensure system stays stable. 
+Implementing revenue protection measures: Such as increasing fines for theft, installing tamper-proof metering devices and tracking usage patterns to detect any illegal use of electricity. 
+Encourage energy efficiency practices: Encourage customers to use energy efficiently, by providing incentives for using energy-efficient appliances, for example, which can help to reduce peak demand and overall consumption. 
+Diversify the generation mix: To reduce the reliance on a single source of generation, which can be vulnerable to disruptions. 
+Invest in renewable energy: which would be more reliable and cost-effective than fossil fuel-based power generation
+Several of the commonly applied measures are related to increased capital expenditure and developing distribution and transmission infrastructure. The scope of this report is limited to analyzing recommendations related to improvements in operations and maintenance, along with effective protection coordination to improve system stability. 
+Objectives of the report
+The objectives of this report are to:
+Identify the root causes of outages unrelated to generation shortfall.
+Evaluate potential solutions to reduce these outages.
+Propose a strategic plan for implementation.
+Methodology 
+This section provides a comprehensive overview of the steps involved in data collection, preprocessing, and analysis. By following this methodology, the report offers a detailed assessment of the outage causes, relay settings, and overload management practices in the PNG electric grid, ultimately providing valuable recommendations to improve grid reliability and customer satisfaction.
+Data collection and sources 
+Historical outage data from PPL, including time-stamped records, cause codes, location details, and customer impact, was collected for analysis.
+Relay settings and protection schematics for substations and transmission lines were obtained from PPL.
+Information on PPL's overload conditions and relevant policies was gathered.
+International standards and best industry practices, such as IEEE 1366-2003 guidelines, were reviewed.
+Expert opinions, industry reports, and academic research on grid reliability, outage analysis, and overload management were consulted.
+
+Data cleaning and preprocessing 
+The accuracy and completeness of the data sets obtained from PPL were verified.
+Data entry errors, missing values, and inconsistencies were identified and addressed.
+Data was categorized and normalized for efficient analysis, including the classification of outage causes, event durations, and affected areas.
+A standardized format for aggregating and comparing data across different sources was developed.
+Given these gaps in processes and data, USAID-PEP provided recommendations to improve data reliability along with a full set of baselines and target thresholds. Additionally, this report proposes a reliability performance framework for the short to medium term. Further recommendations have also been in section 7 of this report to enhance communication and operational efficiency. 
+The USAID PEP team conducted multiple briefing sessions with PPL and presented the findings and recommendations of this report. During these sessions, the USAID PEP team developed the SAIFI and SAIDI reporting process and established baselines and reporting requirements in consultation with PPL. 
+Analytical techniques and tools used
+Descriptive analysis was employed to summarize and describe the key features of the outage data, relay settings, and protection schematics.
+Techniques such as fault tree analysis and event tree analysis were applied to conduct root cause analysis and identify the underlying factors leading to outages and cascading events.
+Trend analysis was carried out to evaluate patterns and trends in outage occurrences and durations over time, as well as the evolution of relay settings and protection schemes.
+Benchmarking was performed to compare PPL's performance and practices against international standards and industry best practices to identify areas for improvement.
+Scenario analysis was conducted to model potential changes in relay settings, protection schemes, and overload management practices to estimate their impact on outage frequency and duration.
+In this study, we performed Latent Dirichlet Allocation (LDA) topic modeling on a large set outage remarks data using the Python library, gensim. The purpose of this analysis was to uncover hidden thematic structures (topics) within the remarks, which can help in understanding the primary themes and trends present in the remarks data for POM and Ramu grids for 2017 through 2021.
+The topic modeling process consisted of the following steps:
+Data Preprocessing: Before applying the LDA algorithm, the text data was preprocessed to improve the efficiency and accuracy of the analysis. The preprocessing involved tokenizing the text into individual words, removing stopwords (common words that do not contribute to the meaning of the text), and lemmatizing the remaining words to their base forms.
+Dictionary and Corpus Creation: After preprocessing the text data, a dictionary was created that mapped each unique word to an integer ID. This dictionary was used to convert the preprocessed text into a bag-of-words representation, which served as the input for the LDA algorithm.
+LDA Topic Modeling: The LDA algorithm was applied to the bag-of-words corpus, with a specified number of topics (e.g., num_topics). The algorithm iteratively assigned words to topics and topics to documents until it reached a stable state, based on the underlying probability distributions.
+Topic Extraction: Once the LDA model was trained, we extracted the discovered topics and their top contributing words. This information provides insights into the primary themes present in the text data and helps in understanding the relationships between words and topics.
+Topic Distribution for New Documents: To analyze a new document within the context of the trained LDA model, the document was preprocessed, converted into a bag-of-words representation, and its topic distribution was calculated using the get_document_topics() method of the trained LDA model.
+By performing topic modeling on the large set of text data, we were able to identify key topics and gain valuable insights into the dataset's underlying thematic structure. This information can be used to inform further analysis, guide decision-making, and enhance our understanding of the text data.
+ Analysis of Interruption and Outage Data
+Overview of PPL's outage data sets 
+As presented in Table 1 of this report, PPL currently uses 14 different cause codes to identify and designate interruptions. The current list is not extensive enough to be fully useful. More than 60% of all interruptions are recorded as equipment failures. Often, during the process of outage recording, cause codes are treated as conditions in which an outage occurs but are not necessarily the underlying cause. This leads to overuse or misuse of a few cause codes. Figures 8 and 9 demonstrate the use of cause “c1: equipment failure”. 
+
+Figure 3: Breakdown of Outages as per PPL's existing Cause codes
+The review of data and information gathered from PPL revealed that a significant portion of the interruptions was caused by faults originating from the generator or a loss of supply. However, based on the cause codes in the outage datasets it is possible that the existing process for identification of interruptions caused by generation events is highly likely to produce unreliable data. For instance, 65% of all the interruptions caused in the Ramu grid from 2017 through 2021 were assigned the cause code C1 which is attributed to PPL equipment failure due to PPL’s responsibility. However, this cause code was used for a very wide range of contingencies while recording outages. 
+USAID-PEP had conducted a thorough review of the cause codes and recommended a revised set of cause codes to effectively categorize and report all interruptions and reliability metrics. 
+5.1.1 Cascading outages
+Cascading outages can be caused by nature disasters, human activity, unexpected component failure, and system failures such as generator tripping, voltage collapse, and insufficient reactive power support. The procedure of cascading outages can be divided into a slow phase and a fast phase, with the fast phase being the unstable phase where overloaded components can trigger further failures and lead to a large blackout. Cascading outages are complex and can involve various mechanisms, making it challenging to analyze through conventional power system analysis approaches.
+During the review of PPL’s total system outages, cascading outages were observed in the POM grid as a result of over loading and subsequent under frequency faults at the generation end. 
+A fault at a generator can overload other generators due to poor ramp rate management and cause cascading outages in the following way:
+Poor ramp rate management: Ramp rate is the rate at which a generator's output is changed. If the ramp rate is too high, the generator may not be able to keep up with the load, leading to overloading. This can happen due to poor ramp rate management, where the rate of change of the generator's output is not controlled properly.
+Overloading: If the load on a generator exceeds its capacity, it can lead to overloading. If a generator trips due to overloading, it stops producing power, leading to a sudden increase in the load on other generators in the system.
+Frequency deviation: The sudden increase in load on other generators can cause a drop in frequency, as the system tries to maintain the balance between generation and load. This can trigger the protective relays in other generators, leading to more trips.
+Cascading effect: The tripping of one generator can cause a sudden increase in load on other generators, which can cause them to trip as well. This can lead to a cascading effect, where multiple generators trip in quick succession, leading to a blackout.
+Therefore, if a generator experiences a fault that causes it to trip, poor ramp rate management can lead to overloading of other generators in the system, causing a cascading effect that can result in a blackout. To prevent this, it is important to ensure proper ramp rate management and set appropriate overload trip limits for generators. Additionally, a robust protection system that can detect and isolate faults quickly can prevent them from spreading to other parts of the system and causing cascading outages.
+Review of System Outage reports
+USAID-PEP reviewed findings of the four total system outages for the POM grid that happened in January 2023. Below are some of the key findings from the review:
+The reports indicate that STATCOM was offline for maintenance during the outages. The restoration of Boroko STATCOM is necessary to maintain healthy system voltage levels and this needs to be addressed immediately. 
+According to the reports, there is a lack of time synchronization among all grid devices. Without time synchronization across devices, it is difficult to provide credible outage analysis. It's unclear how these processes are currently being managed until the time synchronization is available.
+In the first outage on January 6, 2023, it is noted that the Dirio GT 2&3 tripped due to fluctuating voltage and frequency. Further investigation is necessary to determine the root cause of these fluctuations. A review of protection settings like line fault, protection malfunction, CB failure, feeder trippings, etc. is necessary. 
+It is observed that some transmission lines were out of service during the outages (L401, L531, L532, and L537). Further investigation is needed to determine whether these outages planned or unplanned, and if they contribute to the system outages.
+In the reports, NiuPower machine behavior appears to have a significant impact on the extent of the outages. For instance, in the first report, it is mentioned that Niu Power Unit 3 initiated the disturbance, but it is not clear whether this was due to a mechanical or electrical issue within the NiuPower plant. Further investigation to identify and address potential issues with these units is ongoing. 
+There appear to be ‘uncoordinated’ protection settings and lack of load-shedding schemes, causing unbalanced generation supply (in NiuPower) and subsequently the cascading trips.
+In the second outage (January 09, 2023), the frequency event saw a dip from 50 Hz to 49 Hz before NiuPower units attempted to stabilize the frequency. This appears to be a result of an external event, such as a sudden change in demand or generation, that contributed to this. 
+4.2.1 Outage 1, January 6, 2023
+On January 6th, 2023, a total system outage occurred on the POM grid in Papua New Guinea, lasting for 3 hours. The outage was initiated by Niu Power Unit 3 tripping due to a fuel injection gas pressure sensor fault. This was followed by other Niu Power units tripping due to overloading. All AUFLS operated as expected, leading to a total system outage due to over-frequency. The report recommends synchronizing time across all grid devices, restoring/installing RTU at all generation sites for visibility, verifying Niu Power generator response, restoring Boroko Statcom to maintain healthy voltage levels, and requiring concerned generation stations to submit their respective outage reports within 24 hours.
+Additionally, the report suggests that ramp rates and overload trip limits of Unit 2 should be reviewed, as it appears to be slower and lower than the other units. The report also recommends restoring Boroko Statcom to assist in maintaining healthy voltage levels. The data used in the report came from SCADA Event Logs, OFR 01/23, Rouna 2 Alarms, and Dirio & NiuPower Reports.
+Key takeaways from the report include the importance of proper generator maintenance and response, the need for synchronized time across all grid devices, and the value of real-time monitoring and visibility through RTU installations. The report emphasizes the impact of over-frequency on the power system and the critical role of AUFLS in preventing further damage.
+In conclusion, the report highlights the importance of effective load management, generator response, and monitoring systems in preventing and mitigating total system outages. The recommendations outlined in the report provide valuable insights for improving the resilience and reliability of the POM grid and other power systems.
+There were issues with synchronization of time across all grid devices, which should be addressed to ensure accurate monitoring and control of the system.
+SCADA systems should be restored or installed at all generation sites to improve visibility and monitoring of the system.
+The response of Niu Power generators should be verified, with specific attention to Unit 2, which appears to have slower ramp rates and lower overload trip limits than the other units.
+The Boroko Statcom should be restored to assist in maintaining healthy voltage levels.
+All concerned generation stations should submit their respective outage reports within 24 hours.
+In conclusion, the POM system outage on January 6th, 2023, was initiated by a fault in Niu Power Unit 3, which caused all other Niu Power units to overload and trip. The AUFLS systems operated as expected, leading to a total system outage due to over-frequency. The report highlights several key issues that should be addressed to prevent future outages, including the need for improved generator response, synchronized time across all grid devices, and the restoration of the Boroko Statcom.
+4.2.2 Outage 2, January 9, 2023
+On January 9th, 2023, a total system outage occurred on the POM grid in Papua New Guinea, lasting for 1 hour and 57 minutes. The report identifies the cause of the outage as a frequency event that caused the frequency to dip from 50 Hz to as low as 49 Hz before NiuPower units kicked in to bring back the frequency to 49.83 Hz. NiuPower Units started tripping in sequence 3 seconds after the frequency was stable at 49.83 Hz. Unit 2 tripped first, followed by Units 1 & 6, and then Units 3 & 4, with the last unit (5) tripping two seconds after Units 3 & 4. Only Df/Dt feeders tripped in response to NiuPower Units tripping, and Dirio tripped after the last of NiuPower units tripped. UF feeders operated after Dirio tripped, and Rouna 2 units tried to regulate frequency after the loss of NiuPower and Dirio but tripped due to Auxiliary Undervoltage (Unit 5) and Overcurrent (Units 4 & 1). The last generating station online, Rouna 4, tripped after frequency rose above 54 Hz, leading to a total system outage due to Under/Over frequency.
+The report recommends several measures to improve the resilience and reliability of the POM grid and other power systems. These include synchronizing time across all grid devices, restoring/installing RTU at all generation sites for visibility, verifying NP generator response, restoring Boroko Statcom to maintain healthy voltage levels, and requiring concerned generation stations to submit their respective outage reports within 24 hours. The report also suggests reviewing the ramp rates and overload trip limits of Unit 2, as it appears to be slower and lower than the other units.
+Key takeaways from the report include the importance of proper generator maintenance and response, the need for synchronized time across all grid devices, and the value of real-time monitoring and visibility through RTU installations. The report emphasizes the impact of over-frequency on the power system and the critical role of AUFLS in preventing further damage. Effective load management, generator response, and monitoring systems are crucial in preventing and mitigating total system outages.
+the outage was caused by under/over frequency. The sequence of events showed that a frequency event caused the frequency to dip from 50 Hz to as low as 49 Hz before NiuPower units kicked in to bring back the frequency to 49.83 Hz. NiuPower Units started tripping in sequence 3 seconds after the frequency was stable at 49.83 Hz. The last generating station online, Rouna 4, tripped after frequency rose above 54 Hz, resulting in a total system outage. The report provided recommendations, including time synchronization across all grid devices, installation of RTU at all generation sites for visibility, and submission of respective outage reports within 24 hrs by all concerned generation stations. 
+4.2.3 Outage 3, January 12, 2023
+The third system outage for the POM grid occurred on 12th January 2023 at 07:52 hrs, lasting for 2 hours and 11 minutes. The initial fault was at Rouna 2, with Unit 1 tripping on a "Turbine Controller Speed Switch Over-Speed" Alarm, Unit 4 on a "Generator Over-Current Stage 1 Trip" Alarm, and Unit 5 on a "Turbine Controller emergency shutdown" Alarm. These trips occurred within 44 seconds of each other. Subsequently, all Niu Power, Dirio, and Rouna 4 Units tripped off due to under-frequency and generation shortfall, causing a total system outage. 
+In conclusion, 
+The tripping of Rouna 2 units due to turbine controller speed switch over-speed, generator over-current stage 1 trip, and turbine controller emergency shutdown alarms.
+The subsequent tripping of all Niu Power, Dirio, and Rouna 4 units due to an under-frequency/generation shortfall.
+4.2.4 Outage 4, January 19, 2023
+On 19th January 2023, a total system outage occurred on the POM Grid at 07:46 hrs. The cause was not available due to the unavailability of OFR 04/23 and Dirio Trip Report. However, the sequence of events suggests that NiuPower Units picked up on load after the frequency declined to 48.99 Hz, leading to overloads and sequential trips. Subsequently, Dt/Dt and UF feeders, Dirio, and Rouna 2 Units tripped, causing a total system outage. The outage duration was not provided in the report.
+The frequency drop to 48.99 Hz caused NiuPower units to overload and trip in sequence. The report is missing information from OFR 04/23 and Dirio Trip Report, which may impact conclusions and recommendations. Further analysis is needed once all relevant reports are received to provide a comprehensive understanding of the outage and recommendations for improvement.
+Findings from the Outage data analysis
+Considering the limitations in PPL's usage of cause codes previously described in the report, the USAID-PEP team employed a topic modeling approach to analyze the remarks provided by operators and attribute appropriate causes for each outage. By conducting this analysis, the remarks were then categorized into one or more groups of causes, generating two concise sets of data for further examination.
+The methodology used for topic modeling involved a systematic process focused on identifying and grouping the remarks based on their underlying causes. This was achieved by employing a topic modeling algorithm, such as Latent Dirichlet Allocation (LDA), to analyze each remark and extract relevant information that could provide insights into the root cause of the reported issue. The analysis was guided by a predefined set of cause categories, which allowed for consistent and accurate classification of the remarks.
+To ensure the accuracy and reliability of the topic modeling analysis, a rigorous quality control process was implemented. This involved reviewing and cross-checking the classification results at random. The results were then compared and consolidated to ensure a high level of consistency and agreement in the classification outcomes.
+The classification results obtained from the topic modeling approach were analyzed and presented in two figures. Figure 4 below shows the number of remarks related to specific causes, such as weather, equipment failure, human error, planned maintenance, and protection/control/switching issues. Figure 5 provides a breakdown of the remarks by their location in the power system, such as generation, transmission, and distribution. These tables offered a clear and concise overview of the reported issues and their underlying causes. 
+
+Figure 4 Breakdown of outages by system
+Some remarks could not be classified as either generation, transmission, or distribution as they do not provide enough information about the specific part of the power system that was affected.
+As shown in figure 5, most outages are attributable to Switching, relaying and protection related causes. These may refer to, any issues related to the proper functioning of protection systems, control systems, or switching operations that could potentially cause power outages or interruptions. This could include faults in protective relays, malfunctioning of control systems, incorrect settings or coordination of protection devices, improper operation or failure of switches, circuit breakers or other components of the power system.
+These were however not captured in the existing cause classification system. This likely explains how 60% of all outages interruptions were misattributed to equipment failure instead. 
+
+Figure 5 Revised Breakdown of Outages based on a topic modelling approach
+Control/switching/protection issues may include problems with protective relays, circuit breakers, and other switching and control equipment. Examples of control/switching/protection issues include circuit breaker failures, relay mis operations, incorrect settings on protective relays, and problems with communication or coordination between protection devices. These issues can cause equipment damage, power outages, and other system problems.
+Protective Relay coordination criteria
+It is recommended that PPL perform a coordination study of the POM, Ramu and Gazelle grid’s High Voltage Transmission and medium voltage (MV) distribution system.  This document presents protective relaying criteria for performing the coordination study of the Ramu, POM and Gazelle HV Transmission systems, as well as the substation feeder circuit breakers for the MV distribution system. 
+The existing protective relay settings will need to be reviewed within the scope of the coordination study.  Where the existing system relays are found to provide unacceptable levels of protection, including any system lack of coordination (miscoordination), changes to those relay settings will need to be recommended if possible. In the few cases where coordination is impossible these situations should be noted. Where the existing relay settings provide adequate protection, the settings should be recorded, and changes will generally not be recommended.  
+To perform the coordination study, an ASPEN One-liner or equivalent model of the HV transmission systems will need be constructed.  This model can then be used throughout the evaluation of the relay settings and will aid in identifying the validity of communication aided, step-distance, and overcurrent protective relaying schemes throughout the system.  The ASPEN system model will serve as the basis for all fault current evaluation for this review.  
+This Protective Relaying Criteria Document reflects the state of knowledge at the time of its preparation.  This should be revised as necessary during the course of the study as additional information is collected and analyzed.
+Protective relaying operates to isolate faulted equipment from the associated high voltage electrical system.  Protective relaying enhances the overall safety and reliability of the transmission system.  Using definitions from the IEEE 100 The Authoritative Dictionary of IEEE Standards Terms – Seventh Edition, objectives for protective relaying operation can be described as:
+Reliability - A combination of Dependability and Security
+Dependability - The facet of reliability that relates to the degree of certainty that a relay or relay system will operate correctly.
+Security – The facet of reliability that relates to the degree of certainty that a relay or relay system will not operate incorrectly.
+Selectivity - A general term describing the interrelated performance of relays and breakers, and other protective devices; complete selectivity being obtained when a minimum amount of equipment is removed from service for isolation of a fault or other abnormality.
+Speed of Operation- (Also an objective) Faster fault clearance can reduce the impact to power quality along with the potential for personal injury and damage to equipment and lines.
+In plainer language, ideal protective relaying systems, including their related components (e.g. substation DC supply systems, current transformers, voltage transformers, circuit breakers, fuses and communication systems) operate to remove all faults (typically but not limited to short circuits) from the electric power system, never mis-operate, de-energize only the faulted component (e.g., lines, circuit breakers, and transformers); and do so very quickly.
+In practice these goals are never perfectly met, compromises must be made between these sometimes-competing goals.  For example:
+Selectivity vs. Speed – In current and time graded overcurrent relay protection systems such as are typically used in medium voltage (MV –1001 volts through 72.5kV as defined in IEEE 100 The Authoritative Dictionary of IEEE Standards Terms – Seventh Edition) applications, including distribution feeder protection, tripping of source (upstream) devices must be delayed to allow protective devices nearer to the fault to operate first.
+Selectivity vs. Sensitivity – In current and time graded overcurrent relay protection systems such as are typically used in MV applications, including distribution feeder protection, tripping of source (upstream) devices must occur at a higher current level to allow protective devices nearer to the fault to operate first.
+In addition to the result of the numerical model, engineering judgment may be applied to determine protective relaying system design and settings to mitigate conflicts similar to the selectivity vs. sensitivity scenario outlined above.  The practical ability to locate faults so they can be cleared and service restored; economic and public safety considerations involved with unnecessary disruption of service; public safety considerations if faults are not cleared; accepted industry practices; ability to implement with available protective relaying systems; appropriateness for the engineering and operations staff of the operating entity; and potential for equipment damage are representative of the factors considered.  These factors are generally qualitative in nature.  Consequently, judgments are strongly influenced by accepted industry practice and practices of the local operating entity
+Evaluation Guidelines
+This section describes the guidelines by which relay settings are evaluated.  Guidelines are described on a protection element basis, not on a relay basis.  Some protection element guidelines apply to multiple relays (example: a guideline for transformer overcurrent backup may apply to the transformer differential relay, as well as a separate overcurrent relay).  
+When these guidelines cannot be met, the exception will be reported in the calculations document.  Conditions where these guidelines cannot be met may include system limitations or protective device limitations.  
+Analysis Methodology
+In general, an acceptable range of set points is defined for all overcurrent and zone distance line protection elements by a minimum, maximum, or preferred.  When the existing setting falls outside of the acceptable range, a custom value will be recommended using engineering judgment.
+Overcurrent Coordination Setting Guidelines
+Minimum coordination time intervals (CTI) based on IEEE Std. 242-2001[4] (Table 15-2). 
+Overcurrent Coordination Time Intervals
+Between microprocessor relay inverse time elements
+Minimum: 0.20 seconds
+Preferred: 0.25 seconds to allow for system changes
+Downstream fuse with upstream relay inverse time elements
+Minimum: 0.20 seconds from fuse total clear to relay curve
+Preferred: 0.30 seconds to allow for system changes
+Downstream relay inverse time elements with upstream fuse
+Minimum: 0.20 seconds 
+Preferred: 0.30 seconds to allow for system changes
+Add 0.10 seconds to all values when an electro-mechanical relay is involved, however to date the electro-mechanical relays discovered thus far are over 30 years old and unmaintained and untested for at least that duration. Therefore, all electro-mechanical relays will likely be untouched and recommended for replacement, as adjusting the settings would likely be an unproductive activity.
+HV Transmission Line Protection
+Zero Sequence Compensation Settings
+Verifying the relay is set using relay manufacturer’s recommended setting method.
+Ground Directional Settings (32G)
+Where available, use the relay’s automatic ground directional settings.
+Where available, and relay capabilities allow, prioritize negative sequence voltage versus zero sequence voltage polarization.
+Loss of Potential (LOP)
+Use relay specific logic for disabling all voltage-polarized, distance elements and directional overcurrent elements when an LOP condition occurs.
+Distance Elements (21)
+Throughout initial inspection of the system, quadrilateral characteristics are used for distance protection.  A criterion for the quadrilateral elements has been developed and is included in the following section.  In this case, if mho elements are found upon further evaluation of the transmission system, a criterion for these elements is also included.
+Where a transformer is present and connected to the remote bus, it should be treated as line with a 100% Zone 1 element if protected by a differential element.  The transformer differential element will provide instantaneous tripping for the whole “impedance” of the transformer, preventing over reach of time delayed remote zone distance elements.
+When available, load encroachment blocking will be set to prevent distance elements from tripping on overloads. This element will be configured so distance elements do not operate for load currents at 150% of the maximum facility rating, with 0.85 per unit rated voltage, and line phase angle of 30 degrees.  
+When conflicts arise and judgment must be used to make a recommendation, preference will be given to maintain security/selectivity versus sensitivity/speed.
+4.2.4.1 Quadrilateral Distance Elements 
+Zone 1 Phase:
+Zone 1 phase element will be set without time delay in the forward direction
+Reactive Reach
+Minimum reach: 70% of the protected line positive-sequence reactance
+Maximum reach: 85% of the protected line positive-sequence reactance
+Preferred reach: 80% of the protected line positive-sequence reactance
+Resistive Reach
+Set to provide 2 to 5 times the reactive reach coverage.  Consider a minimum of 2 times the reactive reach, and only increase if the emergency line rating is known. 
+For short lines, where relay accuracy is decreased due to high Source Impedance Ratio (SIR), reduce reactive reach values by 20%.
+Zone 1 Ground:
+Zone 1 ground element will be set without time delay in the forward direction. 
+Reactive Reach
+Minimum reach: 70% of the protected line zero-sequence impedance
+Maximum reach: 85% of the protected line zero-sequence impedance
+Preferred reach: 80% of the protected line zero-sequence impedance
+Resistive Reach
+Set to provide 2 to 5 times the reactive reach coverage.  
+For short lines, where relay accuracy is decreased due to high Source Impedance Ratio (SIR), reduce reactive reach values by 20%.
+Zone 2 Phase:
+Zone 2 is typically set to reach in the forward direction, past the end of the protected line to provide fault coverage for the entire line with some margin.  If a communication aided protection scheme exists, Zone 2 will provide the forward fault indication.  Zone 2 should not reach past the shortest remote Zone 1 element on the next line.
+Reactive Reach
+Minimum reach:  120% of the protected line positive-sequence reactance 
+Maximum reach:  80% of the apparent reactance (in-feed included) of the shortest remote Zone 1 element using N-1 condition (comm. scheme out-of-service and remote terminal of remote line open)
+Preferred reach:  100% of the protected line positive-sequence reactance, plus 50% of the longest remote transmission line positive-sequence reactance.  
+Resistive Reach
+Set to provide 2 to 5 times the reactive reach coverage.  Consider a minimum of 2 times the reactive reach, and only increase if the emergency line rating is known. 
+If utilized in a step-distance study, a time delay of 0.30 seconds will be used.
+If the maximum reach criterion is exceeded, increase to 0.5 seconds to provide coordination with remote terminal distance elements.
+Zone 2 Ground:
+Zone 2 Ground element will perform a similar function as Zone 2 Phase element.
+Reactive Reach
+Minimum reach:  120% of the protected line zero-sequence reactance
+Maximum reach:  80% of the apparent reactance (in-feed included) of the shortest remote Zone 1 element using N-1 condition (comm. scheme out-of-service and remote terminal of remote line open)
+Preferred reach:  100% of the protected line zero-sequence reactance, plus 50% of the longest remote transmission line zero-sequence reactance.
+Resistive Reach
+Set to provide 2 to 5 times the reactive reach coverage.
+If utilized in a step-distance capacity, a time delay of 0.30 seconds will be used.
+If the maximum reach criterion is exceeded, increase to 0.5 seconds to provide coordination with remote terminal distance elements.
+Zone 3 Phase (Step-Distance or Communication-Aided):
+Existing elements used in the forward direction will remain in the forward direction, unless a communication aided protection requires a reverse Zone 3 element for blocking.
+Forward Reactive Reach
+Set to 100% of the protected transmission line positive-sequence reactance, plus 100% of the positive-sequence reactance for the longest line out of the remote terminal, including in-feed with an intact system, when used as a backup element with time delay.
+Forward Resistive Reach
+Set to provide 2 to 5 times the zero-sequence reactive reach coverage.  Consider a minimum of 2 times the reactive reach, and only increase if the emergency line rating is known.
+Set time delay to coordinate with the remote, forward looking, step-distance elements, and account for breaker failure timing.
+Consider a time delay of 1.0 second. 
+Where a communication aided protection requires, Zone 3 elements may be set as a reverse element.
+Where local Zone 3 elements overreach the remote Zone 2 element, adjustment may not be required.
+Reverse Reactive Reach
+Set reach to be equal to or greater than the remote line terminal Zone 2 in the reverse direction.  
+Reverse Resistive Reach
+Set reach to be 15 to 25% greater than the remote line terminal Zone 2 reach in the reverse direction.
+If used as a reverse element in a communication aided protection scheme, do not set a time delay.
+Zone 3 Ground (Step-Distance or Communication-Aided):
+Existing elements used in the forward direction will remain in the forward direction, unless a communication aided protection requires a reverse Zone 3 element for blocking.
+Forward Reactive Reach
+Set to same criteria as Zone 3 Phase
+Forward Resistive Reach
+Set to provide 2 to 5 times the reactive reach coverage.  
+Set time delay to coordinate with the remote, forward looking, step-distance elements, and account for breaker failure timing. 
+Consider a time delay of 1.0 second.
+Where a communication aided protection requires, Zone 3 phase and ground may be set as a reverse element.
+Where local Zone 3 elements overreach the remote Zone 2 element, adjustment may not be required.
+Reverse Reactive Reach
+Set reach to be equal to or greater than the remote line terminal Zone 2 in the reverse direction.  
+Reverse Resistive Reach
+Set reach to be 15 to 25% greater than the remote line terminal Zone 2 in the reverse direction.
+If used as a reverse element in a communication aided protection scheme, do not set a time delay.
+Zone 4 Phase:
+Use the same criteria as Zone 3 Phase
+Set only if a reverse Zone 3 element is used in the communication aided tripping scheme and is not used for tripping.
+Zone 4 Ground: Use the same criteria as Zone 3 Ground
+Set only if a reverse Zone 3 element is used in the communication aided tripping scheme and is not used for tripping.
+4.2.4.2 Mho Distance Elements 
+While not expected, mho distance elements may be employed throughout the existing system.  Mho elements will utilize the same percentage impedance reach as employed in the quadrilateral elements reactance for protective zones.
+Communication Aided Tripping Elements
+Throughout the 220kV and 110kV transmission systems, a variety of communication aided protection schemes may be used.  The following sections will describe the different communication aided protection schemes with general parameters and standard settings for operation of these schemes. 
+Based on the initial inspection of the system, Permissive Underreaching Transfer Trip (PUTT) scheme is most commonly used. To provide consistency, use PUTT schemes throughout the system, unless individual circumstances make the use of a PUTT scheme either impractical or a poor application.
+4.2.5.1 Permissive Underreaching Transfer Trip (PUTT)
+The PUTT scheme will use forward looking distance elements to provide a more secure protected zone.  If a Zone 1 pickup occurs at the local terminal, a permissive trip signal will be sent to the remote end terminal.  If the remote terminal Zone 2 element pickups for a fault in the forward direction and receives a permissive trip from the local terminal, it will issue a trip at the remote terminal without delay.  
+PUTT Trip Elements:
+Zone 1 phase and ground distance elements 
+PUTT Permissively Tripped Elements:
+Zone 2 phase and ground distance elements
+Directional residual ground elements can be added for additional sensitivity
+
+
+Figure 6: PUTT Scheme Elements and Logic
+4.2.5.2 Permissive Overreaching Transfer Trip (POTT)
+The POTT scheme will use forward looking distance elements to provide a more secure protected zone.  If a Zone 2 pickup occurs at the local terminal, a permissive trip signal will be sent to the remote terminal.  If a Zone 2 pickup at the remote terminal also occurs, a permissive signal will be sent to the local terminal.  When both local and remote ends receive permissive trip signals, a trip will occur.  Reverse looking blocking elements can be added for additional security.
+POTT Permissive Trip Elements:
+Zone 2 phase and ground distance elements 
+Directional residual ground elements can be added for additional sensitivity
+
+
+
+Figure 7: POTT Scheme Elements and Logic
+4.2.5.3 Directional Comparison Blocking (DCB)
+The DCB scheme will use a combination of forward and reverse elements to create the protected zone.  If a reverse Zone 3 element pickup occurs, a blocking signal is sent to the remote terminal.  If a forward Zone 2 element pickup occurs, and no blocking signal is received from the remote end a trip will occur.
+DCB Permissive Trip Elements:
+Zone 2 phase and ground distance elements 
+Directional residual ground elements can be added for additional sensitivity
+DCB Guard Elements:
+Zone 3 phase and ground distance elements 
+Directional residual ground elements can be added for additional sensitivity
+
+
+Figure 8: DCB Scheme Elements and Logic
+Overvoltage Element (59)
+Where overvoltage elements already exist in the system, leave the elements in place.  If new overvoltage elements are added to the protective relaying, they will be set to the following criteria:  
+Overvoltage Alarm
+Element used for alarm only.
+Pickup set to 110% of nominal system voltage.
+Time delay set to 10 seconds.
+Overvoltage Trip
+Pickup set to 135% of nominal voltage.
+Time delay set to 0.06 seconds.
+Power Swing Block
+Where power swing blocking already exist in the system, the settings will be evaluated for being reasonable and conforming to existing practice.  
+Power Swing Blocking
+Set relay to block all zones to when it detects a power swing.
+Fault Detectors
+Zones 1 - 4 Phase:
+Set to 50% of the minimum in-section phase-to-phase fault duty with strongest source removed. 
+Zones 1 - 4 Ground:
+Set to 50% of the minimum in-section single-line-to-ground fault duty with strongest source removed.
+Line Overcurrent Elements 
+Where available, directional ground overcurrent elements will be set to be used as part of the communication aided protection, or as backup ground overcurrent protection.
+Directional Residual Ground Instantaneous Overcurrent (67G1)
+Disable element in favor of Zone 1 ground distance elements.
+Directional Residual Ground Instantaneous Overcurrent (67G2)
+Set pickup to a value less than the expected single line to ground fault at the end of the transmission line, and greater than an assumed system imbalance. Consider a setting of 400 A-primary.
+This element should only be used as a forward fault indication in communication aided protection scheme to add additional security to the scheme.
+Directional Residual Ground Instantaneous Overcurrent (67G3)
+Set to half the pickup of the remote terminal 67G2 element, and greater than an assumed system imbalance. Consider a setting of 200 A-primary.
+This element should only be used as a reverse fault indication in communication aided protection scheme to add additional security to the scheme.
+Directional Residual Ground Time Overcurrent (51G)
+Pick Up
+Minimum Pickup: Verify this element is set above 10% of line rating, consider relay minimum set point for maximum sensitivity; 
+Maximum Pickup: 50% of the smallest ground fault at the remote bus, considering an N-1 contingency (where applicable).
+Curve Type
+Choose an IEC curve type that coordinates with other protective device curve types in the vicinity.
+Consider a Very Inverse or Extremely Inverse curve type.
+Time Dial
+Choose a time dial that meets CTI requirements mentioned in the Overcurrent Coordination Setting Guideline section.
+Round all time dial to the nearest ½ (x.0 or x.5).  Be sure to recheck coordination after making time dial changes.
+Switch-on-to-Fault (where available)
+Generally recommended for all lines, especially with CCVT type voltage transformer applied on the line side of the breaker.
+Used for instantaneous tripping following the closing of a breaker onto a faulted line.
+Phase Instantaneous Overcurrent (50P)
+Maximum setting: 100% of smallest mid-line fault current
+Preferred setting: 50% of smallest mid-line fault current 
+Configure this element to be active for 8-12 cycles following the closing of the breaker.
+Line Differential Protection Guidelines (87L)
+Line Current Differential Element 
+If one of the terminals is not set up to handle line current differential protection, the differential element will be disabled.
+Where line current differential elements are available, the following criteria will be followed.  
+Consider the relay manufacturer recommended settings.
+Set the current differential pickup in the range of 0.2 per unit to 0.5 per unit.
+Set sensitive slope to detect low current magnitude faults:
+CT Error (10%)
+Relay Error (5%)
+Set the break point between sensitive slope and high-stability slope below the current at which the CTs are expected to go into DC saturation.
+Set high-sensitivity slope to provide secure operation during high-current through-faults.
+Transformer Protection Guidelines
+Differential Elements (87)
+Set differential pickup to avoid false tripping for system imbalance. 
+Sensitive Slope
+Set sensitive slope (ratio of restraint current and operation current) to detect low current magnitude faults.
+Avoid setting too sensitively and avoid tripping due to:
+CT errors (5%)
+Relay Error (5%)
+Transformer Exciting Current (3%)
+Load Tap Changer Induced Error (if applicable)
+De-energized Tap Changer Induced Error (if applicable)
+High-Stability Slope
+Set high-stability slope (ratio of restraint current and operation current) to provide security for through faults currents.
+Avoid setting too sensitively and avoid tripping due to:
+Expected CT Saturation Error
+Transformer Exciting Current (3%)
+Relay Error (5%)
+Load Tap Changer Induced Error (if applicable)
+De-energized Tap Changer Induced Error (if applicable)
+Set the pickup to change between the sensitive slope and the high stability slope to the relay manufacturer recommendation.
+Verify this pickup is set low enough for the change to occur before CTs go into saturation.
+Unrestrained Differential Element
+Verify pickup is greater than transformer inrush (estimated at 12 times the transformer base rating) and through-fault current
+Verify this pickup is less than the minimum high-side fault duty
+Harmonic Restraint or Blocking (where available in a relay)
+Harmonic restraint is preferred over blocking when available.
+Enable harmonic restraint/blocking for inrush current (2nd and 4th Harmonics).
+Enable harmonic restraint/blocking for transformer over excitation (5th Harmonic).
+Restricted Earth Fault (REF)
+Restricted Earth Fault elements will be utilized where the function is already in service in the protective relay.
+Compares the direction of neutral and winding residual current for more rapid and sensitive ground fault detection in grounded-wye windings.
+Set residual current pickup to 20% of full transformer rating to account for system imbalance. 
+If available in the relay, prevent operation when CT saturation is detected.
+Overcurrent Elements (50/51)
+High-Side Phase Instantaneous Overcurrent (50P)
+Set to the greatest of 125% of the maximum 3-phase through-fault or 100% of inrush. 
+Inrush will be defined as 12 times the transformer base rating for 0.1 seconds
+High-Side Phase Time Overcurrent (51P)
+Pickup
+Minimum pickup: 125% of expected emergency loading.  When the actual emergency loading is not known, the transformer maximum rating is used.
+Maximum pickup: 200% of transformer maximum rating
+Curve Type
+Choose an IEC curve type that coordinates with other protective device curve types in the vicinity.
+Consider a Very Inverse or Extremely Inverse curve type.
+Time Dial
+Choose a time dial that meets the minimum CTI requirements mentioned in Section 2.1.2.
+Round all time dial to the nearest ½ (x.0 or x.5).  Be sure to recheck coordination after making time dial changes.
+Neutral Time Overcurrent (51N)
+Neutral time overcurrent elements will be utilized when relay current is provided from a current transformer located in a solidly grounded, wye neutral connection.
+Pickup
+Minimum Pickup: Verify pickup allows for at least 30% unbalance, consider relay minimum set point for maximum sensitivity
+Maximum Pickup: 30% of the smallest ground fault at the remote bus, considering an N-1 contingency (where applicable).
+Curve Type
+Choose an IEC curve type that coordinates with other protective device curve types in the vicinity.
+Consider a Very Inverse or Extremely Inverse curve type.
+Time Dial
+Choose a time dial that meets the minimum CTI requirements listed above. 
+Round all time dial to the nearest ½ (x.0 or x.5).  Be sure to recheck coordination after making time dial changes.
+
+Bus Protection Guidelines
+Low Impedance Bus Differential (87B)
+Pickup
+Set pickup to 1.0 per unit current to avoid tripping on load current when one CT is shorted out or 50% of the minimum fault current contribution, whichever is less.
+This setting is chosen based on the maximum magnitude of the differential current that might be seen under normal operating conditions.
+Verify that the pickup setting is secure for through-faults on any auxiliary transformers in the differential zone.
+Sensitive Slope Setting
+Set sensitive slope (ratio of restraint current and operation current) to detect low current magnitude faults.
+Set to be secure for:
+CT Error (5%)
+Relay Error (5%)
+High-Stability Slope Setting
+Set high-stability slope (ratio of restraint current and operation current) to provide security for through faults currents.
+Set to be secure for:
+Expected CT Saturation Error 
+Relay Error (5%)
+Provide secure relay operation for through-faults.
+Break Point (if multi-slope relay)
+Set the break point between the sensitive and high-stability slopes to a value that is below the minimum AC current that is likely to saturate the weakest CT feeding the relay.
+High Impedance Bus Differential (87Z)
+Refer to relay manufacturer recommendations, where available, to guide in the evaluation of the relay settings.
+Minimum set point: Set to 150% of the voltage generated at the relay terminals during an out of zone fault.
+Maximum set point: 200% of the current transformers C rating.
+Preferred set point:  Set to 200% of the voltage generated at the relay terminals during an out of zone fault.
+Capacitor Bank Protection Guidelines
+Capacitor bank protection will be evaluated on a case by case basis for each station.  Evaluation may include review of voltage differential elements, definite time overcurrent neutral elements, neutral time overcurrent elements, or residual ground time overcurrent elements. 
+Definite Time Overcurrent (50P)
+Set phase instantaneous trip to 5 times capacitor full-load amps.  
+Set trip delay to 0.05 seconds
+Time Overcurrent (51P)
+Pickup
+Set minimum pickup to approximately 150% of capacitor bank full-load amps.
+Curve Type
+Choose an IEC curve type that coordinates with other protective device curve types in the vicinity.
+Consider a Very Inverse or Extremely Inverse curve type.
+Time Dial
+Choose a time dial that meets the minimum CTI requirements mentioned in the Overcurrent Coordination Setting Guideline section.
+Round all time dial to the nearest ½ (x.0 or x.5).  Be sure to recheck coordination after making time dial changes.
+Verify that element coordinates with capacitor bank fuses.
+Neutral Overvoltage Protection (59N)
+If the capability exists to provide neutral overvoltage protection, use the following criteria
+Determine the number of cans that must fail in order to produce a single can overvoltage of 110% (of rating, not nominal).
+Determine the neutral voltage produced by this number of failed cans
+Determine the neutral voltage produced by one less failed can
+Set the pickup to halfway between the preceding two numbers
+Set time delay to coordinate system ground element pickup time for a close-in fault with at least 0.30 seconds of margin.
+If other protective relaying principles are implemented evaluate and develop settings on a case by case basis.
+Breaker Protection and Control Guidelines
+Breaker Failure (50BF)
+In the absence of a transmission line critical fault clearing time, use the following criteria for breaker failure applications.
+4.6.1.1 Breaker Failure Current Detector
+Depending on the relay manufacturer, a phase current detector, or a phase and ground current detector may be available for use in breaker failure applications.  
+Breaker Failure Load Detector (Phase)
+Set to minimum value to detect load current. 
+Preferred pickup: 0.20 per unit
+Breaker Failure Load Detector (Neutral)
+Set to provide coverage for resistive faults.
+Preferred pickup: 0.20 per unit
+4.6.1.2 Breaker Failure Timing
+Set breaker failure time delay no lower than the sum of the following:
+Twice the maximum breaker operating/interrupting time.
+Where breaker interrupting time is not known, use 0.08 seconds.
+0.02 seconds for current detector dropout
+0.02 seconds for safety margin
+Reclosing (79)
+Where reclosing is already in place, use the following criteria to employ the function.  Reclosing will be investigated for transmission line terminals only. 
+Implement one shot high-speed reclose only
+Where reclosing is not used, verify if existing protective relaying system allows for this functionality to be implemented.
+Initiate reclosing for:
+Any protection element trip in the communication aided protection or line differential relays
+Block reclosing for:
+Breaker failure trip, an out of zone fault, a ground time overcurrent element trip, or trips while LOP condition exists.
+Reclosing Supervision
+Dead Line-Live Bus
+Live Line-Live Bus with Synchronism checking supervision 
+Reclosing Time Delay
+Where reclosing is already employed, consider using the existing setting unless specific circumstances dictate to the contrary
+Do not set reclosing open interval timer to less than 0.5 second
+Do not apply reclosing when the line under consideration:
+Terminates on the same bus as generation
+Terminates on a bus separated only by one line from the generator
+Could be connected radially to a generator by reconfiguring the switching of the transmission system.
+Synchronism Checking (25)
+Where synchronism is already in place, consider using the existing settings.  Where deviating from the existing settings, use the following criteria to employ the function.  
+Synch-check set points for the applicable breaker will be set as follows:
+Voltage threshold is 85% to 115% of the nominal voltage
+Maximum angle difference set to 40 degrees.
+Maximum slip frequency set to 0.10 Hz.
+Where generation is close-by, do not set higher than 10 degrees for angle difference.
+Voltage Supervision Setting Guidelines 
+Typical live and dead conditions are defined as follows:
+Live – Measured voltage greater than 75% of nominal
+Dead – Measured voltage less than 25% of nominal.
+
+Distribution Feeder Protection
+Distribution System Considerations
+The distribution protection for this project presents a non-typical challenge in that preliminary data collection has exposed that many transformers do not have primary (10 kV, 15 kV, or 20 kV) fuses.  A piece of small diameter conductor is connected across the fuse holder in place of a fuse.  Because of the lack of transformer fuses the usual level of selectivity cannot be obtained, nor can the usual level of sensitivity for internal transformer faults (usually sort circuits) be obtained.  If a fault occurs within a transformer it may be necessary to remove the entire feeder from service to de-energize a fault in an individual transformer.  More typically, with properly sized fuses and coordinating feeder relays, a fault within a transformer would result in one or more fuses operating, de-energizing the faulted transformer and clearing the fault without opening the circuit breaker.  Electric service disruption would be limited to those served by the faulted transformer.  
+The protective relaying criteria for 10, 15, and 20 kV distribution feeder circuit protective relaying will establish the framework for developing a number standardized protective relay settings which will be used across the system.  The standardization will simplify protective relay setting and testing as well as improve reliability by providing more consistent and predictable protective relay operation.  
+Individual feeder characteristics will be reviewed and feeders will be classified (e.g. Heavy Loaded 20 kV feeder, Lightly Loaded 20 kV feeder, and so on) into a limited number of classifications.  The factors which will constrain the feeder relay settings will be established for each feeder classification.  Some of the constraining factors can be determined with accuracy while others, due to lack of practically available information, will be estimated based upon existing relay settings coupled with a general knowledge of the distribution system and engineering judgment.  
+A discussion of constraining factors follows:
+Voltage, Substation Transformer Connection, and Substation Transformer Neutral Grounding – This information will be available on substation drawings and existing inspection reports and will be confirmed by field observation.
+Distribution Feeder Circuit Breaker Continuous Current Rating – This information will be available on substation drawings and existing inspection reports and will be confirmed by field observation.
+Available Short Circuit Current – Available short circuit current can be estimated with good accuracy based upon the substation transformer impedances and transmission/generation system information developed in previous studies. 
+Source Side Protective Relay Settings – Source side protective relay settings will be determined as part of the coordination study and will be selected to coordinate with the feeder relay settings.
+Distribution Feeder Substation Get-Away Conductor/Cable Sizes – Field observations and in some cases substation drawings will allow estimating sizes.  To determine sizes with certainty would require de-energizing the feeder to allow close-up inspection and measurement of the conductor or cable.
+Maximum Load Current Per Phase – Based on data gathering performed to date of this writing, this information is not expected to be available.  For purposes of protective relay setting this information will be estimated from existing relay settings and substation get-away conductor/cable size. 
+Load Side Protective Devices – Based upon initial data collection reports the feeder circuit breaker protects all of the overhead line, there are no in line fuses or automatic circuit reclosers to sectionalize the line.  Distribution transformers then become the load side device that the feeder circuit breaker protective relaying should coordinate with.  As noted previously, preliminary inspection reports also have exposed that many distribution transformers have had their high voltage fuses replaced with small diameter wire.  Without transformer fuses the feeder circuit breaker must operate for distribution transformer faults, and the time-current coordination that normally exists to allow transformer fuses to operate before the feeder circuit breaker cannot exist.  
+Manner of Connecting Load Serving Transformers to the Distribution Feeder – Based upon our understanding of electric utility practice in Afghanistan load serving transformers will be three phase, delta primary with wye connected secondaries.  Typical secondary (consumption) voltages are 400 volt phase to phase and 230 volt phase to neutral.
+These guidelines may be subject to revision as more complete data becomes available.  They have been prepared based upon limited knowledge of the existing system as complete field collected data was not available at the time of this writing.  
+Distribution Overcurrent Protection
+It may not be possible to meet all guidelines.  If all guidelines cannot be met it will be noted and an explanation will be provided.
+Largest Load Side Fuse (10kV)
+This section will be developed when field data collection information becomes available.
+Largest Load Side Fuse (15kV)
+The 15kV feeder relays will be set to coordinate with fusing for an 800 kVA transformer.  Because existing fuse sizes are unknown, fuse characteristics will be developed by looking at a variety of fuse types (e.g. T links, K links, E standard power fuses and E slow power fuses).  A composite curve will be developed that will allow coordination with any of these commonly used fuse types.  If actual field data becomes available it will be added to the composite curve.  If practical, 1000 kVA fusing characteristics will be used above a few hundred amps to minimize likelihood of miscoordination for the few 15kV 1000 kVA transformers on the system.
+For 1000 kVA transformers, coordination will not be assured between the feeder breaker and transformer fuses.  This decision is driven by engineering judgment that the best protective relaying compromise is to retain the lower ground relay pick-up needed for 800 kVA transformer fusing to increase the likelihood of downed phase conductors being detected and cleared by the feeder relay over the limited risk of miscoordination for a few 1000 kVA transformers.
+Largest Load Side Fuse (20kV)
+The 20kV feeder relays will be set to coordinate with fusing for a 1000 kVA transformer.  Because existing fuse sizes are unknown, fuse characteristic will be developed by looking at a variety of fuse types (e.g. T links, K links, E standard power fuses and E slow power fuses,).  A composite curve will be developed that will allow coordination with any of these commonly used fuse types.  If actual field data becomes available it will be added to the composite curve.
+The reduced current at 20kV results in 1000 kVA transformer fuses at 20kV being less than or equal to in size to 800 kVA transformer fuses at 15kV
+Phase Over Current Instantaneous (50)
+If reclosing is used set to a value of current approximately equal to but greater than the current at 0.04 seconds (two cycles at 50 Hz) total clearing time for the largest load side fuse.
+If reclosing is not used this element will not be used to avoid simultaneous operation of the fuse and the feeder breaker.
+High Set Phase Over Current Definite Time (50DT - HI)
+If reclosing is used set to a value of current approximately equal to but greater than the current at 0.2 seconds total clearing time for the largest load side fuse.  Set time delay to 0.2 seconds.
+Without reclosing add the CTI from elsewhere in this criteria document to the time delay.
+Low Set Phase Over Current Definite Time (50DT – LO)
+Pick-up value will be selected, to the extent possible:
+At least 50% above maximum expected load current.  This will allow for temporary overloads when energizing the feeder after a prolonged outage (cold load pick-up). 
+No more than 25% above estimated continuous current rating of substation get-away conductor or cable calculated at 10C ambient and 75C conductor temperature, .61 m/s cross-wind.  This will allow for temporary overloads when energizing the feeder after a prolonged outage (cold load pick-up) while minimizing opportunity for conductor damage due to sustained overloads.  This setting will favor reliability of service rather than protection of conductor to long term overloading.  Feeder loading should be monitored at peak loading periods, and if conductor overloading is occurring, changes should be made to the distribution system to alleviate the overloading.
+No more than the projected line to line fault current, calculated with a 10 Ω primary fault resistance, at the end of the line section protected by the feeder relay.  Representative values for available short circuit current at the substation, feeder conductor size and type, structure geometry and distance to first protective device will be used for this calculation. 
+No more than feeder circuit breaker continuous current rating. 
+With reclosing exceed and approximately match time delay to the total clearing time for the largest load side fuse.
+Without reclosing add the CTI from elsewhere in this criteria document to the time delay.
+Phase Over Current Inverse Time (51)
+To match existing practice this element will not be used.
+Ground Over Current Instantaneous (50G)
+This element will not be used.  It can easily result in miscoordination with load side protection devices unless set at or above the 50 element.  Setting it would only duplicate the 50 element functionality and add unnecessary complexity.
+High Set Ground Over Current Definite Time (50GDT - HI)
+If reclosing is used set approximately equal to but great than the current at the 4.0 seconds total clearing time for the largest load side fuse.  Set time delay to 4.0 seconds.
+Without reclosing add the CTI from elsewhere in this criteria document to the time delay.
+Low Set Ground Over Current Definite Time (50GDT – LO)
+If reclosing is used set approximately equal to but greater than the value of current at the 30 second total clearing time for the largest load side fuse. Set time delay to 30 seconds.
+Without reclosing add the CTI from elsewhere in this criteria document to the time delay.
+Ground Over Current Inverse Time (51G)
+To match existing practice this element will not be used.
+Reclosing Sequence
+One reclose after a three second time delay will be the default reclosing setting.  This reclosing sequence may be reevaluated based upon existing relay settings.
+Preliminary data acquisition indicates that some substations do not have reclosing capability.  Settings will be adjusted to for these stations to avoid simultaneous operation of the circuit breaker and the largest load-side fuse as described in previous sections.
+Often two or even three reclose attempts are included on distribution circuits.  However given the relative absence of trees and therefore the lower likelihood of tree limb related outages coupled with the relatively poor condition of the distribution system (which is expected to result in a higher proportion of permanent faults) the benefits of additional recloses to reliability is reduced.  Reducing the number of recloses to one will reduce opportunities for injury due to contact with downed but still energized distribution conductors.
+Distribution Bus Main Breaker Protection
+Reclosing 
+No reclosing will be used 
+Instantaneous Elements
+50 and 50G elements will not be used to avoid miscoordination with downstream devices
+Ground Elements
+Stepped 50G DT-LO and 50 G DT-HI curves are preferred but 51G IDMT (Inverse Definite Minimum Time) curves can be used at the discretion of  the engineer 
+Minimum pick-up approximately 10% greater than the highest 50G DT-LO setting used on the load side feeders.
+The minimum CTI established elsewhere in this criteria document between source side and load side protective relay time current curves, including adjustment for changes in magnitude of line to line and phase to ground fault currents through the substation delta-wye connected transformer.
+Set relay elements to favor sensitivity and speed.  Because of delta connected three phase distribution transformers there will be no steady state ground current.
+Phase Elements
+Stepped 50 DT-LO and 50 DT-HI curves are preferred but 51 IDMT (Inverse Definite Minimum Time) curves can be used at the discretion of  the engineer 
+Minimum pick-up equal to lesser of: 1) approximately 125% of transformer maximum MVA rating at rated voltage or 2) breaker continuous rating. 
+The minimum CTI established elsewhere in this criteria document between source side and load side protective relay time current curves, including adjustment for changes in magnitude of line to line and phase to ground fault current through the substation delta-wye connected transformer.
+Set relay elements to favor load carrying capability and security.  This relay must allow maximum load current to be provided by the transformer.
+Key Definitions for Relay Coordination
+Terms
+The technical terms used in these guidelines generally comply with industry, and more specifically, IEEE usage.  Definitions of a few terms that may benefit from clarification of their specific use in this report are included later in this section.  
+Coordination Time Interval (CTI) – The preferred minimum difference, expressed in seconds or cycles at power frequency, between the time current characteristics or two overcurrent protective devices (typically fuses , circuit breakers or automatic circuit reclosers) to allow for selective tripping between the two devices.
+Intact system – Electric transmission system in its normal operating configuration (i.e. all normally closed CBs and switches closed, all normally open CBs and switches open, and normal generation on line)
+Load Terminal – A connection to a transmission line or substation that is not a source of fault current
+Local or Local Bus – Usually used to refer to the station where the relays being considered are located 
+Distance – Usually refers to the electrical distance (impedance) between points on the electrical system instead of the physical distance.
+Remaining source – Used to refer to those source terminals connected to the transmission line or bus that remain connected and supplying fault current for the case under consideration.  In a typical contingency case this would be all source terminals less the faulted line and the source removed to investigate system performance under contingency conditions.
+Remote end – Refers to a terminal of the transmission line remote from the relay of interest.
+Second Bus or 2nd Remote Bus – A bus separated by one transmission line from the remote end bus.  Zone 3 distance relays are usually set to reach past the second bus to provide remote backup protection for CB failure or DC battery failure at the remote bus.
+Source Terminal – A connection to a transmission line or substation that is a source of fault current.  
+Three-terminal line – A transmission line that has three source terminals.  It may have load terminals in addition.
+Two-terminal line – A transmission line that has two source terminals.  It may have load terminals in addition.  
+Zone 1 – Subject relay instantaneous zone
+Zone 2 – Subject relay overreaching, time delayed zone
+Zone 3 – Subject relay reverse reaching zone, used in Pilot schemes
+Zone 4 – Subject relay long reaching, long time delayed zone
+Sometimes called Zone 3 if no Pilot scheme is used
+Remote Bus – The bus at the opposite end of the protected line
+Remote Lines – Lines connected to remote bus
+Remote Zone 1, Zone 2, etc. – Forward reaching zones of the remote lines
+Remote End Zone 2 – The zone 2 element at the opposite end of the protected line that is looking back at the subject line terminal
+Remote Zone 2 is different from Remote End Zone 2
+Reverse lines – Lines connected to the same bus at the protected line
+Note that a parallel line is both a remote line and a reverse line
+Reverse Bus – Bus at the end of the reverse lines 
+Remote End Zone 2 overreach - The amount the remote end Zone 2 reaches behind the subject relay terminal
+Margin – The area between the ends of a local zone and some zone you are trying to over/under reach 
+Zone 2 margin is the area between “Zone 2” and the “Remote Zone 2”
+Zone 3 Margin is the area between “Zone 3” and the “Remote End Zone 2”
+Discussion of Primary and Backup Protection 
+The terms primary and backup protection, as used in the industry, sometimes appear to have ambiguous meaning.  Within this report the distinction between primary and backup is based upon whether a relay element is expected to operate for a fault, and is independent of whether the element is in a relay labeled “primary” or “backup”. 
+Primary protective relaying elements are those that are expected to trip for a fault in the protected equipment.  The targets observed after a fault are expected to include all or a portion of the primary elements.  The elements that operate will vary depending upon the type, magnitude, and location of the fault. 
+Backup protective relay elements are those that are delayed in time, have reduced sensitivity, or for other reasons are not expected to operate so long as the primary protective relaying elements operate properly. 
+Some elements do not fit clearly into one definition or another and these elements are listed as backup. 
+A couple of consequences of these definitions are:
+Tripping of a backup element during a fault may indicate that there is a problem with the protective relaying, and should be investigated.
+Primary protective relaying elements may reside in two or more protective relays, and likewise backup protective relaying elements may reside in two or more relays.  
+Managing Overload Conditions 
+The current values for load dispatch operation are pre-set in advance. However, if one of the double transmission lines is offline due to a fault, there is no automatic load shedding happening to limit the load to the thermal limit of the one operating circuit. When this happens, the generators fall out of sync with the system resulting in a loss of supply. 
+This is supported by the outage data as well. A predominant amount of generation and transmission level faults are due to overload, under frequency, or loss of supply. The overload phenomenon takes between several minutes and several tens of minutes while loss of synchronism takes several hundred milliseconds to transpire. Therefore, the time scale of the power shedding system for the overload is different from that for stability.
+For example, if two of the three Transmission lines from Singsing to Erap are out of service, or the double Transmission line from Pauanda to Valium is out of service, the other operating line becomes overloaded. Therefore, it is recommended to consider installing a power-shedding system/scheme, which can prevent this loss of generation from happening.
+
+Review of PPL's overload conditions 
+5.1.1 Identification of critical components and network sections: Determine the critical components and network sections within the grid that are most prone to overloading based on historical data and system analysis.
+5.1.2 Examination of past outages and incidents: Analyze past outages and incidents related to overload conditions to identify patterns, common causes, and areas that need improvement.
+5.1.3 Load-flow analysis: Conduct load-flow analysis under various operating conditions and contingencies to identify potential overload conditions and their impacts on the system performance.
+5.1.4 Evaluation of existing load management and load shedding schemes: Assess the effectiveness of the current load management and load shedding schemes in preventing and mitigating overload conditions.
+
+Analysis of alignment with international standards 
+Recommendations for managing overload conditions.
+Advanced Technologies for Outage Management
+5.3.1.1 Smart Grid Technology
+Smart Grid Technology PPL can adopt smart grid technology to optimize grid performance, detect faults, and improve outage response times.
+The first step toward automating the OMS process and standardizing the cause codes is to incorporate more substations and feeders into the existing SCADA system. This enables the central load control center or LDC to see time stamps of events and identify fault locations and causes. A robust communication system improves outage response times and enhances the reliability of reporting interruptions. 
+Upgrade and extension of the SCADA system to key locations and WPF should be the priority. Through consultations with PPL’s SCADA team, the USAID PEP team outlined the following steps and corrective actions in the SCADA upgrade process:
+A thorough review of the existing coverage of the SCADA system 
+A preliminary review of the existing SCADA system’s adaptive relay protection settings
+Testing of SCADA’s control philosophy across key substations
+Identify key areas for expansion
+Integration of SCADA system with the load control/system control center
+Importance should also be given to outage reports from the customers and their integration to the service requests and the OMS. A well-integrated customer information system will improve the responsiveness of service requests and reduce overall downtime.
+5.3.1.2 Advanced Metering Infrastructure (AMI)
+PPL can implement AMI to remotely monitor electricity usage, identify outages, and enhance customer service.
+5.3.1.3 Distribution Automation Systems
+Distribution automation systems can help PPL improve grid reliability and reduce outage durations by remotely controlling and monitoring distribution equipment.
+For instance, a fault location, isolation, and service restoration (FLISR) technology and systems consist of automated feeder switches and reclosers, line monitors, communication networks, distribution management systems (DMS), outage management systems (OMS), supervisory control and data acquisition (SCADA) systems, grid analytics, models, and data processing tools. These components work together to enable automated power restoration, minimizing both the effects and duration of power disruptions.
+FLISR applications help decrease the number of customers affected by a fault by isolating the problematic area and restoring power to the remaining customers by connecting them to nearby circuits. Moreover, the fault isolation feature assists crews in quickly identifying the issue's location, leading to reduced outage durations for customers affected by the problematic section. The primary measured benefits of this technology include a decrease in the number of customers interrupted (CI) and a reduction in the associated customer minutes of interruption (CMI).
+5.3.1.4 Geographic Information Systems (GIS)
+PPL can utilize GIS technology to map and analyze their infrastructure, optimizing maintenance activities and outage response times.
+Equipment Maintenance and Upgrades
+Preventive Maintenance Programs
+PPL should implement preventive maintenance programs to regularly inspect and maintain equipment, reducing the risk of unexpected failures.
+Asset Management Systems
+PPL can adopt asset management systems to track equipment conditions, prioritize replacements, and optimize maintenance schedules.
+Equipment Modernization
+PPL should consider upgrading outdated equipment with newer, more reliable technology to reduce failures and improve efficiency.
+Other Recommendations
+Workforce Training and Development
+6.2.2.1 Safety and Technical Training
+Safety and Technical Training PPL can provide safety and technical training for employees to minimize human error and ensure proper operation and maintenance of equipment.
+7.2.2.2 Knowledge Management and Succession Planning
+PPL should establish knowledge management practices and succession planning to retain institutional knowledge and ensure the continuity of skilled personnel.
+Weather-Resilient Infrastructure
+7.2.3.1 Underground Cabling
+Underground Cabling PPL may consider installing underground cabling in areas prone to extreme weather events, reducing the risk of weather-related outages.
+Vegetation Management
+Regular vegetation management, such as tree trimming and removal, can help minimize outages caused by fallen branches or trees on power lines.
+7.2.3.3 Advanced Weather Forecasting
+Conclusion 
+Appendices
+PPL Protection settings
+PPL System Outage Reports
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
